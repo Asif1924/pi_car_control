@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_mjpeg/flutter_mjpeg.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Pi Car Controller',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Pi Car Controller'),
+      home: PiCarHomePage(), //MyHomePage(title: 'Pi Car Controller'),
     );
   }
 }
@@ -48,6 +50,51 @@ class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
+
+class PiCarHomePage extends HookWidget {
+  @override
+  Widget build(BuildContext context) {
+    final isRunning = useState(true);
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Pi Car Controller'),
+      ),
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            child: Center(
+              child: Mjpeg(
+                isLive: isRunning.value,
+                stream:
+                'http://192.168.1.183:9787/?action=stream',
+              ),
+            ),
+          ),
+          Row(
+            children: <Widget>[
+              RaisedButton(
+                onPressed: () {
+                  isRunning.value = !isRunning.value;
+                },
+                child: Text('Toggle'),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => Scaffold(
+                        appBar: AppBar(),
+                      )));
+                },
+                child: Text('Push new route'),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;

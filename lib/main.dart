@@ -72,8 +72,7 @@ class PiCarHomePage extends HookWidget {
             child: Center(
               child: Mjpeg(
                 isLive: isRunning.value,
-                stream:
-                'http://192.168.1.183:9787/?action=stream',
+                stream: 'http://192.168.1.183:9787/?action=stream',
               ),
             ),
           ),
@@ -89,8 +88,8 @@ class PiCarHomePage extends HookWidget {
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => Scaffold(
-                        appBar: AppBar(),
-                      )));
+                            appBar: AppBar(),
+                          )));
                 },
                 child: Text('Push new route'),
               ),
@@ -102,7 +101,6 @@ class PiCarHomePage extends HookWidget {
   }
 }
 
-
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
@@ -113,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter+=2;
+      _counter += 2;
     });
   }
 

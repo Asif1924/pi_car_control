@@ -54,7 +54,6 @@ class PiCarHomePage extends HookWidget {
       body: Column(
         children: <Widget>[
           Expanded(
-            child: LabelElement(),
             child: Center(
               child: Mjpeg(
                 isLive: isRunning.value,

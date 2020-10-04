@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_mjpeg/flutter_mjpeg.dart';
@@ -52,6 +54,7 @@ class PiCarHomePage extends HookWidget {
       body: Column(
         children: <Widget>[
           Expanded(
+            child: LabelElement(),
             child: Center(
               child: Mjpeg(
                 isLive: isRunning.value,

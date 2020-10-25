@@ -57,7 +57,7 @@ class PiCarHomePage extends HookWidget {
             child: Center(
               child: Mjpeg(
                 isLive: isRunning.value,
-                stream: 'http://192.168.1.183:9787/?action=stream',
+                stream: 'http://192.168.1.186:9787/?action=stream',
               ),
             ),
           ),

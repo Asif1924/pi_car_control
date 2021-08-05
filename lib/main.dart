@@ -3,14 +3,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_mjpeg/flutter_mjpeg.dart';
-import 'package:flutter_launcher_icons/android.dart';
-import 'package:flutter_launcher_icons/constants.dart';
-import 'package:flutter_launcher_icons/custom_exceptions.dart';
-import 'package:flutter_launcher_icons/ios.dart';
-import 'package:flutter_launcher_icons/main.dart';
-import 'package:flutter_launcher_icons/utils.dart';
-import 'package:flutter_launcher_icons/xml_templates.dart';
-import 'package:flutter_launcher_name/flutter_launcher_name.dart';
+// import 'package:flutter_launcher_icons/android.dart';
+// import 'package:flutter_launcher_icons/constants.dart';
+// import 'package:flutter_launcher_icons/custom_exceptions.dart';
+// import 'package:flutter_launcher_icons/ios.dart';
+// import 'package:flutter_launcher_icons/main.dart';
+// import 'package:flutter_launcher_icons/utils.dart';
+// import 'package:flutter_launcher_icons/xml_templates.dart';
+// import 'package:flutter_launcher_name/flutter_launcher_name.dart';
 
 void main() {
   runApp(MyApp());
@@ -57,7 +57,9 @@ class PiCarHomePage extends HookWidget {
             child: Center(
               child: Mjpeg(
                 isLive: isRunning.value,
-                stream: 'http://192.168.1.186:9787/?action=stream',
+                //stream: 'http://192.168.1.186:9787/?action=stream',
+                //http://192.168.1.7:8081/PiHomeOfficeLAN/
+                stream: 'http://192.168.1.183:9787/?action=stream',
               ),
             ),
           ),
